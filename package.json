@@ -23,13 +23,20 @@
   "author": "Andrey Ustinov a.k.a andryushque",
   "license": "ISC",
   "dependencies": {
-    "commander": "^4.0.1"
+    "commander": "^4.0.1",
+    "lodash": "^4.17.15"
   },
   "devDependencies": {
     "@babel/cli": "^7.7.0",
     "@babel/core": "^7.7.4",
     "@babel/node": "^7.7.0",
-    "@babel/preset-env": "^7.7.4"
+    "@babel/preset-env": "^7.7.4",
+    "babel-eslint": "^10.0.3",
+    "eslint": "^6.7.2",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-babel": "^5.3.0",
+    "eslint-plugin-import": "^2.19.1",
+    "jest": "^24.9.0"
   },
   "repository": {
     "type": "git",
