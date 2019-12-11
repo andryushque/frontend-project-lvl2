@@ -7,28 +7,24 @@ const gendiff = (filePath1, filePath2) => {
   const file1 = parse(filePath1);
   const file2 = parse(filePath2);
 
-  const reduceFunc1 = (acc, key) => {
-    if (_.has(file1, key) === true) {
+  const fileKeys = _.union(Object.keys(file1), Object.keys(file2));
+
+  const reduceFunc = (acc, key) => {
+    if (_.has(file1, key) === true && _.has(file2, key) === true) {
       if (file1[key] === file2[key]) {
-        return [`\n   ${key}: ${file1[key]}`, ...acc];
+        return `${acc}\r\n    ${key}: ${file1[key]}`;
       }
-      return [`\n + ${key}: ${file2[key]}`, `\n - ${key}: ${file1[key]}`, ...acc];
+      return `${acc}\r\n  + ${key}: ${file2[key]}\r\n  - ${key}: ${file1[key]}`;
     }
-    return [...acc, `\n + ${key}: ${file2[key]}`];
+
+    if (_.has(file1, key) === false) {
+      return `${acc}\r\n  + ${key}: ${file2[key]}`;
+    }
+    return `${acc}\r\n  - ${key}: ${file1[key]}`;
   };
 
-  const result1 = Object.keys(file2).reduce(reduceFunc1, []);
-
-  const reduceFunc2 = (acc, key) => {
-    if (_.has(file2, key) === false) {
-      return [...acc, `\n - ${key}: ${file1[key]}`];
-    }
-    return acc;
-  };
-
-  const result2 = Object.keys(file1).reduce(reduceFunc2, result1);
-
-  return ['{', ...result2, '\n}'].join('');
+  const result = fileKeys.reduce(reduceFunc, '');
+  return `{${result}\r\n}\r\n`;
 };
 
 export default gendiff;
