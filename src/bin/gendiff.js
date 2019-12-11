@@ -12,3 +12,5 @@ program
   });
 
 program.parse(process.argv);
+
+export default gendiff;
