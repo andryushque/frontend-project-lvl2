@@ -6,8 +6,8 @@ env:
   jest: true
 
 extends:
-  - 'airbnb-base'
-  - 'plugin:jest/recommended'
+  - airbnb-base
+  - plugin:jest/recommended
 
 parser: babel-eslint
 
