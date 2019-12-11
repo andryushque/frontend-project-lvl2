@@ -1,6 +1,6 @@
 {
   "name": "hexlet-gendiff-andryushque",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Hexlet Project#2 - Difference Generator",
   "keywords": [
     "hexlet",
@@ -10,9 +10,9 @@
   ],
   "main": "gendiff.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "build": "NODE_ENV=production babel src --out-dir dist --source-maps inline",
-    "prepublishOnly": "npm run build"
+    "prepublishOnly": "npm run build",
+    "test": "jest --watch"
   },
   "files": [
     "dist"
@@ -36,7 +36,11 @@
     "eslint-config-airbnb-base": "^14.0.0",
     "eslint-plugin-babel": "^5.3.0",
     "eslint-plugin-import": "^2.19.1",
+    "eslint-plugin-jest": "^23.1.1",
     "jest": "^24.9.0"
+  },
+  "jest": {
+    "testEnvironment": "node"
   },
   "repository": {
     "type": "git",
