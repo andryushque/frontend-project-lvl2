@@ -8,4 +8,9 @@
 
 ## Example
 
+# json
 [![asciicast](https://asciinema.org/a/Pxx3V9pXMExmj66itYmcvnZxr.svg)](https://asciinema.org/a/Pxx3V9pXMExmj66itYmcvnZxr)
+
+
+# yaml
+[![asciicast](https://asciinema.org/a/WeF6Iavtd5exgRYb3IBnzPfI1.svg)](https://asciinema.org/a/WeF6Iavtd5exgRYb3IBnzPfI1)
