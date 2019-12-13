@@ -14,3 +14,6 @@
 
 # yaml
 [![asciicast](https://asciinema.org/a/WeF6Iavtd5exgRYb3IBnzPfI1.svg)](https://asciinema.org/a/WeF6Iavtd5exgRYb3IBnzPfI1)
+
+# ini
+[![asciicast](https://asciinema.org/a/t43h4gH8R66gVlcapf6kQy8WF.svg)](https://asciinema.org/a/t43h4gH8R66gVlcapf6kQy8WF)
