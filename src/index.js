@@ -1,13 +1,13 @@
 import _ from 'lodash';
-import fs from 'fs';
+import parseFile from './parsers';
 
-const parse = (path) => JSON.parse(fs.readFileSync(path, 'utf8'));
+const gendiff = (filePathBefore, filePathAfter) => {
+  const file1 = parseFile(filePathBefore);
+  const file2 = parseFile(filePathAfter);
+  const keys1 = Object.keys(file1);
+  const keys2 = Object.keys(file2);
 
-const gendiff = (filePath1, filePath2) => {
-  const file1 = parse(filePath1);
-  const file2 = parse(filePath2);
-
-  const fileKeys = _.union(Object.keys(file1), Object.keys(file2));
+  const fileKeys = _.union(keys1, keys2);
 
   const reduceFunc = (acc, key) => {
     if (_.has(file1, key) === true && _.has(file2, key) === true) {
