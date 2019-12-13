@@ -19,3 +19,12 @@ test('gendiff yml test', () => {
   const expected = fs.readFileSync(path.join(__dirname, '/__fixtures__/difference.txt'), 'utf8');
   expect(received).toEqual(expected);
 });
+
+test('gendiff ini test', () => {
+  const filePathBeforeINI = path.join(__dirname, '/__fixtures__/before.ini');
+  const filePathAfterINI = path.join(__dirname, '/__fixtures__/after.ini');
+
+  const received = gendiff(filePathBeforeINI, filePathAfterINI);
+  const expected = fs.readFileSync(path.join(__dirname, '/__fixtures__/difference.txt'), 'utf8');
+  expect(received).toEqual(expected);
+});
