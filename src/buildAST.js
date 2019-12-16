@@ -1,8 +1,8 @@
 import _ from 'lodash';
 
 const buildAST = (fileBefore, fileAfter) => {
-  const keys1 = Object.keys(fileBefore);
-  const keys2 = Object.keys(fileAfter);
+  const keys1 = _.keys(fileBefore);
+  const keys2 = _.keys(fileAfter);
   const fileKeys = _.union(keys1, keys2);
 
   const iterAST = (fileKey) => {
