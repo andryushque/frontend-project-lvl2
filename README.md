@@ -8,12 +8,16 @@
 
 ## Example
 
-# json
+# .json
 [![asciicast](https://asciinema.org/a/Pxx3V9pXMExmj66itYmcvnZxr.svg)](https://asciinema.org/a/Pxx3V9pXMExmj66itYmcvnZxr)
 
 
-# yaml
+# .yaml
 [![asciicast](https://asciinema.org/a/WeF6Iavtd5exgRYb3IBnzPfI1.svg)](https://asciinema.org/a/WeF6Iavtd5exgRYb3IBnzPfI1)
 
-# ini
+# .ini
 [![asciicast](https://asciinema.org/a/t43h4gH8R66gVlcapf6kQy8WF.svg)](https://asciinema.org/a/t43h4gH8R66gVlcapf6kQy8WF)
+
+# nested
+
+[![asciicast](https://asciinema.org/a/NyJsetXoEgjNw67ZcKVNIFDO8.svg)](https://asciinema.org/a/NyJsetXoEgjNw67ZcKVNIFDO8)
