@@ -6,7 +6,6 @@ import fs from 'fs';
 const parsers = {
   '.json': (file) => JSON.parse(file),
   '.yml': (file) => YAML.safeLoad(file),
-  '.yaml': (file) => YAML.safeLoad(file),
   '.ini': (file) => INI.parse(file),
 };
 
