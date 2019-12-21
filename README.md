@@ -46,21 +46,40 @@ $ gendiff before.json after.json
 ```
 
 ### Comparing two json files
+```
+$ gendiff <firstFile.json> <secondFile.json>
+```
 [![asciicast](https://asciinema.org/a/289673.svg)](https://asciinema.org/a/289673)
 
 ### Comparing two yml files
+```
+$ gendiff <firstFile.yml> <secondFile.yml>
+```
 [![asciicast](https://asciinema.org/a/289677.svg)](https://asciinema.org/a/289677)
 
 ### Comparing two ini files
+```
+$ gendiff <firstFile.ini> <secondFile.ini>
+```
 [![asciicast](https://asciinema.org/a/289678.svg)](https://asciinema.org/a/289678)
 
 ### Comparing two files with recursive structure, output format - tree (default)
+```
+$ gendiff <firstFile> <secondFile>
+$ gendiff -f tree <firstFile> <secondFile>
+```
 [![asciicast](https://asciinema.org/a/289668.svg)](https://asciinema.org/a/289668)
 
 ### Comparing two files with recursive structure, output format - plain
+```
+$ gendiff -f plain <firstFile> <secondFile>
+```
 [![asciicast](https://asciinema.org/a/289666.svg)](https://asciinema.org/a/289666)
 
 ### Comparing two files with recursive structure, output format - json
+```
+$ gendiff -f json <firstFile> <secondFile>
+```
 [![asciicast](https://asciinema.org/a/289667.svg)](https://asciinema.org/a/289667)
 
 ## Uninstall
