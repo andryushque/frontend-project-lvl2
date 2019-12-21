@@ -25,7 +25,7 @@ Output formats:
   - plain
   - JSON
 
-Types of config files:
+Types of configuration files:
   - .json
   - .yaml
   - .ini
