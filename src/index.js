@@ -5,7 +5,7 @@ import getRenderFormat from './formatters';
 
 const gendiff = (filePathBefore, filePathAfter, format = 'tree') => {
   if (path.extname(filePathBefore) !== path.extname(filePathAfter)) {
-    throw new Error('Please, use files with the same format!');
+    throw new Error('Please, use files with the same extension!');
   }
   const fileBefore = parseFile(filePathBefore);
   const fileAfter = parseFile(filePathAfter);
