@@ -7,7 +7,7 @@ const testDirectory = path.join(__dirname, '/__fixtures__/');
 const getData = (fileName) => fs.readFileSync(`${testDirectory}${fileName}`, 'utf-8').replace(/\r/g, '');
 
 test.each(dataFormats)('gendiff test - tree format (default)', (dataFormat) => {
-  const received = gendiff(`${testDirectory}/before.${dataFormat}`, `${testDirectory}/after.${dataFormat}`, 'tree');
+  const received = gendiff(`${testDirectory}/before.${dataFormat}`, `${testDirectory}/after.${dataFormat}`);
   const expected = getData('treeDifference.txt');
   expect(received).toEqual(expected);
 });
