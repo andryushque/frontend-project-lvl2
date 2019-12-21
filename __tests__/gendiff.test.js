@@ -20,6 +20,6 @@ test.each(dataFormats)('gendiff test - plain format', (dataFormat) => {
 
 test.each(dataFormats)('gendiff test - json format', (dataFormat) => {
   const received = gendiff(`${testDirectory}/before.${dataFormat}`, `${testDirectory}/after.${dataFormat}`, 'json');
-  const expected = getData('jsonDifference.txt').replace(/\n/g, '');
+  const expected = getData('jsonDifference.txt').trim();
   expect(received).toEqual(expected);
 });
