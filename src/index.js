@@ -1,12 +1,21 @@
 import parseFile from './parsers';
 import buildAST from './buildAST';
-import render from './render';
+import renderTree from './formatters/renderTree';
+import renderPlain from './formatters/renderPlain';
 
-const gendiff = (filePathBefore, filePathAfter) => {
+const renderFormats = {
+  tree: renderTree,
+  plain: renderPlain,
+};
+
+const getRenderFormat = (format) => renderFormats[format];
+
+const gendiff = (filePathBefore, filePathAfter, format = 'tree') => {
   const fileBefore = parseFile(filePathBefore);
   const fileAfter = parseFile(filePathAfter);
   const ast = buildAST(fileBefore, fileAfter);
-  const result = render(ast);
+  const renderFormat = getRenderFormat(format);
+  const result = renderFormat(ast);
   return result;
 };
 
