@@ -4,8 +4,8 @@ import gendiff from '../src';
 
 const fileExtensions = ['json', 'yml', 'ini'];
 const testDirectory = path.join(__dirname, '/__fixtures__/');
-const getPathToFileBefore = (fileExtension) => path.join(testDirectory, `before.${fileExtension}`);
-const getPathToFileAfter = (fileExtension) => path.join(testDirectory, `after.${fileExtension}`);
+const getPathToFileBefore = (fileExtension) => path.join(testDirectory, 'before.' + fileExtension);
+const getPathToFileAfter = (fileExtension) => path.join(testDirectory, 'after.' + fileExtension);
 const getData = (fileName) => fs.readFileSync(path.join(testDirectory, fileName), 'utf-8').replace(/\r/g, '');
 
 test.each(fileExtensions)('gendiff test - tree format (default)', (fileExtension) => {
