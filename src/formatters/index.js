@@ -8,5 +8,4 @@ const renderFormats = {
   json: renderJson,
 };
 
-const getRender = (format) => renderFormats[format];
-export default getRender;
+export default (data, format) => renderFormats[format](data);
