@@ -1,9 +1,6 @@
 import _ from 'lodash';
 
-const makeTab = (lvl) => '    '.repeat(lvl);
-const plus = '  + ';
-const minus = '  - ';
-const tab = makeTab(1);
+const makeTab = (lvl, sign = '') => '    '.repeat(lvl) + sign;
 
 const stringify = (value, lvl = 0) => {
   if (!(_.isObject(value))) {
@@ -21,12 +18,11 @@ const stringify = (value, lvl = 0) => {
 
 const render = (ast) => {
   const iterAst = (item, lvl) => {
-    const makeLine = (obj, sign) => `${makeTab(lvl)}${sign}${obj.key}: ${stringify(obj.value, lvl + 1)}\n`;
     const getLineByType = {
-      unchanged: (obj) => makeLine(obj, tab),
-      added: (obj) => makeLine(obj, plus),
-      removed: (obj) => makeLine(obj, minus),
-      changed: (obj) => `${makeTab(lvl)}${plus}${obj.key}: ${stringify(obj.valueAfter, lvl + 1)}\n${makeTab(lvl)}${minus}${obj.key}: ${stringify(obj.valueBefore, lvl + 1)}\n`,
+      unchanged: (obj) => `${makeTab(lvl + 1)}${obj.key}: ${stringify(obj.value, lvl + 1)}\n`,
+      added: (obj) => `${makeTab(lvl, '  + ')}${obj.key}: ${stringify(obj.value, lvl + 1)}\n`,
+      removed: (obj) => `${makeTab(lvl, '  - ')}${obj.key}: ${stringify(obj.value, lvl + 1)}\n`,
+      changed: (obj) => `${makeTab(lvl, '  + ')}${obj.key}: ${stringify(obj.valueAfter, lvl + 1)}\n${makeTab(lvl, '  - ')}${obj.key}: ${stringify(obj.valueBefore, lvl + 1)}\n`,
       object: (obj) => `${makeTab(lvl + 1)}${obj.key}: {\n${iterAst(obj.children, lvl + 1)}${makeTab(lvl + 1)}}\n`,
     };
     return item.reduce((acc, obj) => acc.concat(getLineByType[obj.type](obj)), '');
