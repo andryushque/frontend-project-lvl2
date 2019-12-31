@@ -5,7 +5,7 @@ import buildAST from './buildAST';
 import getRender from './formatters';
 
 const getData = (filePath) => fs.readFileSync(filePath, 'utf8');
-const getExt = (filePath) => path.extname(filePath);
+const getExt = (filePath) => path.extname(filePath).slice(1);
 const gendiff = (filePathBefore, filePathAfter, format = 'tree') => {
   const dataBefore = getData(filePathBefore);
   const dataAfter = getData(filePathAfter);
