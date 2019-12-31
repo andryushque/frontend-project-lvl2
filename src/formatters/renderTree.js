@@ -1,6 +1,6 @@
 import _ from 'lodash';
 
-const makeTab = (lvl, sign = '') => '    '.repeat(lvl) + sign;
+const makeTab = (lvl, sign = '') => '    '.repeat(lvl) + `${sign}`;
 
 const stringify = (value, lvl = 0) => {
   if (!(_.isObject(value))) {
