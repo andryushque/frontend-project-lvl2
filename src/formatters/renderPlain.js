@@ -21,8 +21,9 @@ const render = (ast) => {
       object: (obj) => iterAst(obj.children, getKey(obj)),
     };
     const line = item.filter((obj) => obj.type !== 'unchanged')
-      .reduce((acc, obj) => [...acc, getLineByType[obj.type](obj)], []);
-    return line.join('\n');
+      .map((obj) => getLineByType[obj.type](obj))
+      .join('\n');
+    return line;
   };
   const result = iterAst(ast, []);
   return `${result}\n`;
