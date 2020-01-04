@@ -25,7 +25,7 @@ const render = (ast) => {
       changed: (obj) => `${makeTab(lvl, '  + ')}${obj.key}: ${stringify(obj.valueAfter, lvl + 1)}\n${makeTab(lvl, '  - ')}${obj.key}: ${stringify(obj.valueBefore, lvl + 1)}\n`,
       object: (obj) => `${makeTab(lvl + 1)}${obj.key}: {\n${iterAst(obj.children, lvl + 1)}${makeTab(lvl + 1)}}\n`,
     };
-    return item.reduce((acc, obj) => acc.concat(getLineByType[obj.type](obj)), '');
+    return item.map((obj) => getLineByType[obj.type](obj)).join('');
   };
   const result = `{\n${iterAst(ast, 0)}}\n`;
   return result;
