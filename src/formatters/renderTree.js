@@ -27,8 +27,8 @@ const render = (ast) => {
     };
     return item.map((obj) => getLineByType[obj.type](obj)).join('');
   };
-  const result = `{\n${iterAst(ast, 0)}}\n`;
-  return result;
+  const result = iterAst(ast, 0);
+  return `{\n${result}}\n`;
 };
 
 export default render;
