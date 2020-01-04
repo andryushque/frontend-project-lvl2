@@ -7,9 +7,9 @@ const parsers = {
   ini: INI.parse,
 };
 
-const getParser = (ext) => parsers[ext];
-const parseData = (data, ext) => {
-  const parse = getParser(ext);
+const getParser = (type) => parsers[type];
+const parseData = (data, type) => {
+  const parse = getParser(type);
   const result = parse(data);
   return result;
 };
