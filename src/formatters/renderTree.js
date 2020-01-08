@@ -19,16 +19,16 @@ const stringify = (value, lvl = 0) => {
 const render = (ast) => {
   const iterAst = (item, lvl) => {
     const getLineByType = {
-      unchanged: (obj) => `${makeTab(lvl + 1)}${obj.key}: ${stringify(obj.value, lvl + 1)}\n`,
-      added: (obj) => `${makeTab(lvl, '  + ')}${obj.key}: ${stringify(obj.value, lvl + 1)}\n`,
-      removed: (obj) => `${makeTab(lvl, '  - ')}${obj.key}: ${stringify(obj.value, lvl + 1)}\n`,
-      changed: (obj) => `${makeTab(lvl, '  + ')}${obj.key}: ${stringify(obj.valueAfter, lvl + 1)}\n${makeTab(lvl, '  - ')}${obj.key}: ${stringify(obj.valueBefore, lvl + 1)}\n`,
-      object: (obj) => `${makeTab(lvl + 1)}${obj.key}: {\n${iterAst(obj.children, lvl + 1)}${makeTab(lvl + 1)}}\n`,
+      unchanged: (obj) => `${makeTab(lvl + 1)}${obj.key}: ${stringify(obj.value, lvl + 1)}`,
+      added: (obj) => `${makeTab(lvl, '  + ')}${obj.key}: ${stringify(obj.value, lvl + 1)}`,
+      removed: (obj) => `${makeTab(lvl, '  - ')}${obj.key}: ${stringify(obj.value, lvl + 1)}`,
+      changed: (obj) => `${makeTab(lvl, '  + ')}${obj.key}: ${stringify(obj.valueAfter, lvl + 1)}\n${makeTab(lvl, '  - ')}${obj.key}: ${stringify(obj.valueBefore, lvl + 1)}`,
+      object: (obj) => `${makeTab(lvl + 1)}${obj.key}: {\n${iterAst(obj.children, lvl + 1)}\n${makeTab(lvl + 1)}}`,
     };
-    return item.map((obj) => getLineByType[obj.type](obj)).join('');
+    return item.map((obj) => getLineByType[obj.type](obj)).join('\n');
   };
   const result = iterAst(ast, 0);
-  return `{\n${result}}\n`;
+  return `{\n${result}\n}`;
 };
 
 export default render;
